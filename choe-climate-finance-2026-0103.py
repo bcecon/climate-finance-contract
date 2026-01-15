@@ -33,6 +33,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
+import matplotlib.ticker as mticker
 import seaborn as sns
 from pathlib import Path
 import os
@@ -41,7 +42,13 @@ try:
     script_dir = str(Path(__file__).resolve().parent) + os.sep
 except NameError:
     script_dir = os.getcwd() + os.sep
-    
+
+
+# Use ×10^n style (mathtext) instead of 1eN
+sf = mticker.ScalarFormatter(useMathText=True)
+sf.set_scientific(True)
+sf.set_powerlimits((-3, 3))  # sci notation outside [1e-3, 1e3]
+
 
 # %% 
 # ------------------------------------------------------------
@@ -473,14 +480,18 @@ def save_fig(fig, stem):
 # -------------------------------
 # Panel 1) Climate cost C_FB(G)
 # -------------------------------
+
 fig, ax = plt.subplots(figsize=(8, 5))
 ax.plot(G_plot, C_plot, label=r"$C_{FB}(G)$")
 ax.axvline(G0, color="gray", linestyle="--", label=r"$G_0$ (Year 2015 level)")
 ax.axvline(G_ss_FB, color="red", linestyle="--", label=r"$G^{FB}_{ss}$")
 ax.set_xlabel(r"GHG stock $G$")
 ax.set_ylabel(r"First-best climate cost, $C_{FB}(G)$")
+ax.yaxis.set_major_formatter(sf)
 # ax.set_title("First-best Climate Cost")
 ax.grid(alpha=0.3)
+ax.ticklabel_format(axis="y", style="sci", scilimits=(-3, 3), useMathText=True)
+ax.yaxis.get_offset_text().set_size(10)
 ax.legend(loc="upper left")
 save_fig(fig, "fb_climate_cost")
 plt.show()
@@ -945,6 +956,8 @@ for r in rho_list:
     ax.plot(sub["year"], sub["value"], color=rho_to_color[r], linestyle=rho_to_ls[r], linewidth=2.0, label=rho_label(r))
 ax.set_xlabel("Year")
 ax.set_ylabel(r"Difference in climate cost $C^{SB}_t - C^{FB}_t$")
+ax.ticklabel_format(axis="y", style="sci", scilimits=(-3, 3), useMathText=True)
+ax.yaxis.get_offset_text().set_size(10)
 ax.grid(alpha=0.3)
 force_year_axis(ax, start_year, T_sim, series_len="T")
 ax.legend(loc="upper left", ncol=1)
@@ -983,6 +996,8 @@ for r in rho_list:
     ax.plot(sub["year"], sub["value"], color=rho_to_color[r], linestyle=rho_to_ls[r], linewidth=2.0, label=rho_label(r))
 ax.set_xlabel("Year")
 ax.set_ylabel(r"Promise value, $w_t$")
+ax.ticklabel_format(axis="y", style="sci", scilimits=(-3, 3), useMathText=True)
+ax.yaxis.get_offset_text().set_size(10)
 ax.grid(alpha=0.3)
 force_year_axis(ax, start_year, T_sim, series_len="Tp1")
 ax.legend(loc="upper left", ncol=1)
@@ -1000,6 +1015,8 @@ for r in rho_list:
     ax.plot(sub["year"], sub["value"], color=rho_to_color[r], linestyle=rho_to_ls[r], linewidth=2.0, label=rho_label(r))
 ax.set_xlabel("Year")
 ax.set_ylabel(r"Total funding, $I_t$")
+ax.ticklabel_format(axis="y", style="sci", scilimits=(-3, 3), useMathText=True)
+ax.yaxis.get_offset_text().set_size(10)
 
 ax.grid(alpha=0.3)
 force_year_axis(ax, start_year, T_sim, series_len="T")
@@ -1018,6 +1035,8 @@ for r in rho_list:
     ax.plot(sub["year"], sub["value"], color=rho_to_color[r], linestyle=rho_to_ls[r], linewidth=2.0, label=rho_label(r))
 ax.set_xlabel("Year")
 ax.set_ylabel(r"Adaptation funding, $a_t$")
+ax.ticklabel_format(axis="y", style="sci", scilimits=(-3, 3), useMathText=True)
+ax.yaxis.get_offset_text().set_size(10)
 
 ax.grid(alpha=0.3)
 force_year_axis(ax, start_year, T_sim, series_len="T")
@@ -1038,6 +1057,8 @@ ax.set_xlabel("Year")
 ax.set_ylabel(r"Mitigation funding, $m_t$")
 
 ax.grid(alpha=0.3)
+ax.ticklabel_format(axis="y", style="sci", scilimits=(-3, 3), useMathText=True)
+ax.yaxis.get_offset_text().set_size(10)
 force_year_axis(ax, start_year, T_sim, series_len="T")
 ax.legend(loc="upper left", ncol=1)
 fig.tight_layout()
