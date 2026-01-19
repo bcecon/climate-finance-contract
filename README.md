@@ -34,7 +34,7 @@
 
 <br>
 <p align="center">
-  <b>Figure 1.</b> First-best benchmarks. Author's own elaboration.
+  <b>Figure 5.</b> First-best benchmarks. Author's own elaboration.
 </p>
 
 <br>
@@ -97,11 +97,11 @@
 
 <br>
 <p align="center">
-  <b>Figure 2.</b> Comparison of dynamics under the first-best and the second-best (SB) contract for probabilities of contract enforcement
+  <b>Figure 6.</b> Comparison of dynamics under the first-best and the second-best (SB) contract for probabilities of contract enforcement
   rho in {0.80, 0.85, 0.90, 0.95, 1.00}, with initial total funding set to 8% of the first-best level in 2015.
   Author's own elaboration.
 </p>
 
 
-The author does not numerically solve the full Bellman problem in this repository because a global solution is computationally intensive and highly sensitive to grid construction and interpolation choices. Nevertheless, a full-solution implementation can reproduce the patterns shown in Figure 2.
+The author does not numerically solve the full Bellman problem in this repository because a global solution is computationally intensive and highly sensitive to grid construction and interpolation choices. Nevertheless, a full-solution implementation can reproduce the patterns shown in Figure 6.
 
