@@ -1,4 +1,4 @@
-## Choe, B.-H., [Climate Finance under Limited Commitment and Renegotiations: A Dynamic Contract Approach](https://www.mdpi.com/1911-8074/19/1/76), _Journal of Risk and Financial Management_ (2026)
+## Choe, B.-H., [Climate Finance under Limited Commitment and Renegotiations: A Dynamic Contract Approach](https://www.mdpi.com/1911-8074/19/1/76){target="blank"}, _Journal of Risk and Financial Management_ (2026)
 
 ### First-best Benchmark
 
